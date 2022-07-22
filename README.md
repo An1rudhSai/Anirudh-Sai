@@ -1,5 +1,3 @@
-# Anirudh-Sai
--
 import matplotlib.pyplot as ani
 
 def compareCIE():
@@ -9,80 +7,47 @@ def compareCIE():
             break
         except ValueError:
             print("Not a valid integer! Please try again ...")
+    while True:
+        try:
+            peeps=int(input(("Enter the number of students(Upto 5) :")))
+            break
+        except ValueError:
+            print("Not a valid integer! Please try again ...")
     subs=[]
     i=0
     while(i<sub):
         subs.append(input("Enter the name of the subject :"))
         i+=1
     names=[]
-    for i in range(1,6):
-        print("Enter the name of candidate ",i)
+    for i in range(peeps):
+        print("Enter the name of candidate ",i+1)
         names.append(input())
         
+    color=['r','g','b','y','c']
     marks1=[]
     marks2=[]
     marks3=[]
     marks4=[]
     marks5=[]
-    i=0
-    while (i<sub):
-        while True:
-            try:
-                print("Enter marks of ",names[0]," in ",subs[i]," :")
-                marks1.append(int(input()))
-                break
-            except ValueError:
-                print("Not a valid integer! Please try again ...")
-        i+=1
-    i=0
-    while (i<sub):
-        while True:
-            try:
-                print("Enter marks of ",names[1]," in ",subs[i]," :")
-                marks2.append(int(input()))
-                break
-            except ValueError:
-                print("Not a valid integer! Please try again ...")
-        i+=1
-    i=0
-    while (i<sub):
-        while True:
-            try:
-                print("Enter marks of ",names[2]," in ",subs[i]," :")
-                marks3.append(int(input()))
-                break
-            except ValueError:
-                print("Not a valid integer! Please try again ...")
-        i+=1
-    i=0
-    while (i<sub):
-        while True:
-            try:
-                print("Enter marks of ",names[3]," in ",subs[i]," :")
-                marks4.append(int(input()))
-                break
-            except ValueError:
-                print("Not a valid integer! Please try again ...")
-        i+=1
-    i=0
-    while (i<sub):
-        while True:
-            try:
-                print("Enter marks of ",names[4]," in ",subs[i]," :")
-                marks5.append(int(input()))
-                break
-            except ValueError:
-                print("Not a valid integer! Please try again ...")
-        i+=1
+    marks=[marks1,marks2,marks3,marks4,marks5]
+    
+    for i in range(0,peeps):
+        for j in range(0,sub):
+            while True:
+                try:
+                    print("Enter the marks of ",names[i]," in ",subs[j]," :")
+                    marks[i].append(int(input()))
+                    break
+                except ValueError:
+                    print("Not a valid integer! Please try again ...")
+            
     #Scatter plot
     ani.xlabel('NAMES')
     ani.ylabel('MARKS')
     ani.title("CONTIONOUS INTERNAL EVALUATION")
-    ani.scatter( subs,marks1, label=names[0], color='r')
-    ani.scatter( subs,marks2, label=names[1], color='g')
-    ani.scatter( subs,marks3, label=names[2], color='b')
-    ani.scatter( subs,marks4, label=names[3], color='y')
-    ani.scatter( subs,marks5, label=names[4], color='c')
+    for i in range(peeps):
+        ani.scatter( subs,marks[i], label=names[i], color=color[i])
+    
     ani.legend()
     ani.show()
         
@@ -92,4 +57,6 @@ if(choice==1):
     compareCIE();
 else:
     print("Loser !!!!")
+
+
 
