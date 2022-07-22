@@ -46,7 +46,7 @@ def compareCIE():
     ani.ylabel('MARKS')
     ani.title("CONTIONOUS INTERNAL EVALUATION")
     for i in range(peeps):
-        ani.scatter( subs,marks[i], label=names[i], color=color[i])
+        ani.plot( subs,marks[i],linestyle='-', label=names[i], color=color[i])
     
     ani.legend()
     ani.show()
