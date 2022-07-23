@@ -33,7 +33,7 @@ def compareSEE():
         for j in range(sem):
             while True:
                 try:
-                    print("Enter the marks of ",names[i]," in ",sems[j]," :")
+                    print("Enter the SGPA of ",names[i]," in ",sems[j]," :")
                     marks[i].append(float(input()))
                     break
                 except ValueError:
@@ -42,7 +42,7 @@ def compareSEE():
     #Plot
     ani.xlabel('SEMESTERS')
     ani.ylabel('POINTS')
-    ani.title("CONTIONOUS INTERNAL EVALUATION")
+    ani.title("CUMULATIVE GRADE POINT AVERAGE")
     if(sem==1):
         for i in range(peeps):
             ani.scatter( sems,marks[i],linestyle='-', label=names[i], color=color[i])
